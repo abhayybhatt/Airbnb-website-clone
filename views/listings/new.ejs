@@ -1,0 +1,64 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+    <div class="row mt-3"><!--bootstrap class: margin top (mt), isse by default upar se margin add ho jaata hai.-->
+        <div class="col-8 offset-2" ><!--bootstrap class. agr let's say hamari screen 12 parts mein divided hai aur ham chah rhe hai ki apna form usmein se sirf 8 parts ko column form mein occupy kre to we use this class. Isse apna form puri screen occupy nhi krega aur chhota ho jayega. offset-2 yaani left se thodi si space de denge so that our form appears at the centre of our page.-->
+            <br><br>
+            <h3>Create a New Listing</h3>
+            <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data"> <!--novalidate bootstrap form validation ke liye hai, ab browser by default koi message display nhi krega agr blank entry add krte hai to. needs-validation class bootstrap ki hi default class hai.-->
+                <div class="mb-3"><!--bootstrap class hai: margin bottom 3, used for adding spacing in between. enctype: By default hamara form urlEncoded data send krta hai, lekin agr kabhi apne form se files ko send krna ho, to apan apne form ki encoding type(enctype) ko multipart/form-data set kr dete hai, iski help se apan photos, pdf files, etc. apne html form ke through send kr sakte hai.-->
+                    <label for="title" class="form-label">Title</label><!--yha form-label aur form-control bhi bootstrap ki classes hai.-->
+                    <input name="listing[title]" placeholder="Enter a catchy title" type="text" class="form-control" required> <!--required set kr diya yaani Title mein kuch na kuch name rakhna hi padega.-->
+                    <div class="valid-feedback">
+                        Title looks good! <!--ye message tabhi show hoga jab title ko apan sahi add krenge.-->
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control" required> </textarea>
+                    <div class="invalid-feedback">
+                        Please enter a short description.
+                    </div>
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label for="image" class="form-label">Image Link</label>
+                    <input name="listing[image]" placeholder="enter image URL" type="text" class="form-control">
+                </div> -->
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Listing Image</label>
+                    <input name="listing[image]" type="file" class="form-control" required> <!--lekin image multipart/form-data format mein hai urlEncoded format mein nhi isliye backend nhi samajh payega ki ye kya hai aur empty object {} req.body mein return krke dega, for fixing this issue, we'll use: Multer. Multer is a node.js middleware for handling multipart/ form-data , which is primarily used for uploading files. NOTE: Multer will not process any form which is not multipart (multipart/form-data). Ye bhi ek npm package hai! npm i multer-->
+                </div>
+
+                <div class="row"> <!--price aur country ko same line mein laane ke liye we are creating a row.-->
+                    <div class="mb-3 col-md-4"><!--us ek row mein ham chahte hai ki price hamara column 4 le.-->
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" placeholder="1200" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Price should be valid.
+                        </div>
+                    </div>
+    
+                    <div class="mb-3 col-md-8"><!--usi same row mein jaha price column 4 le rha hai we want country to take column 8. Ye price aur country ki conditions medium(md) screen size aur md ke baaad tak hi 4:8 ke ratio mein valid rhe, md ke pehle agr small screen size ho jaye to wo alag alag row mein aa jaye isliye beech mein md add kra.-->
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" placeholder="India" type="text" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Country name should be valid.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" placeholder="Jaipur, Rajasthan" type="text" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Location should be valid.
+                    </div>
+                </div>
+                <button class="btn btn-dark add-btn mt-3">Add</button><!--bootstrap class hai btn btn-dark. Ab apne button ko bhi hamare footer ke compass icon ke jaisa colour dena hai isliye isko add-btn class mein daala hai.-->
+                <br><br>
+            </form>
+        </div>
+    </div>
+</body>

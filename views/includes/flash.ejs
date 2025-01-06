@@ -1,0 +1,14 @@
+<% if(success && success.length) { %> <!--agr success exist krega, yaani agr nayi listing jab banegi tabhi ye flash message show krna hai. Pr fir bhi show hoga, kyuki success ek empty array hai to show to hoga hi, isliye  additional condition hai agr success array ki length greater than 0 hogi, tabi yeh flash message body ke upar show krna hai.-->
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert"> <!--Bootstrap alert class-->
+        <%= success %> <!--app.js ke res.locals.success mein se aaya hai-->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> <!--Bootstrap dismissible button, ek cross(x) shape mein button hai, jaise hi isko click krenge, to refresh kiye bina bhi apan alert ko dismiss kr sakte hai.-->
+    </div>
+<% } %>
+
+<% if(error && error.length) { %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= error %> <!--app.js ke res.locals.success mein se aaya hai-->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+

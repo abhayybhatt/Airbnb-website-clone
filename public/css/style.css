@@ -1,0 +1,113 @@
+/*INDEX PAGE STYLING:*/
+/* body{
+    background-color: pink;
+} */
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex; /* hamare footer ko har ek page ke bottom mein jaake embed(stick) krna hai, uske liye yha se lekr .container ki styling di gyi hai.*/
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{ /*boilerplate.ejs ki class hai.*/
+    flex:1; /*isse container class puri minimum height ko occupy kr legi.*/
+}
+/*navbar*/
+.navbar{
+    height: 5rem;
+    background-color: white; /*navbar ki transparency hatane ke liye, kyuki usko sticky-top class di hai apan ne jisse navbar fixed position mein hi rhega even after scrolling downwards.*/
+}
+.fa-compass{
+    color: #fe424d; /*similar to airbnb icon.*/
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important; /*!important krne se kya hota hai? => already  bootstrap ki styling lagi hui hai, isliye !important nhi likhenge to ye styling apply hi nhi hogi. Agr ham chahte hai ki hamari ye custom styling bootstrap ki default styling ko override kr jaye to we use !important in css.*/
+}
+
+/*footer*/
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info-links, .f-info-socials, .f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.f-info-socials i{
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb; /*A slightly greyish background color.*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/*styling the Cards(images)*/
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem; /*thodi spacing aa jayegi har ek row ke cards ke beech mein.*/
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important; /*puri width ko occupy krega rather than side mein space leave krne ki jagah.*/
+    object-fit: cover !important; /*taaki card ki default stylings ki jagah apan usmien apni custom styling lekr aa sake.*/
+}
+.card-body{ /*yaani card ka text wala part.*/
+    padding: 0 !important; /*isse text align ho jayega image ke saath.*/
+}
+.card-text p{
+    font-weight: 400 !important;
+}
+.listing-link{
+    text-decoration: none; /*for removing underlines from our image content jo ki anchor tags ke andar hai.*/
+}
+/*Card Effect*/
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover { /*to isse thoda click-able effect mil jayega.*/
+    opacity: 0.2;
+    background-color: white;
+}
+
+/*CREATE NEW LISTING PAGE STYLING:*/
+.add-btn{ 
+    background-color: #fe424d !important;
+    border: none !important;
+}
+/*baaki changes like adding bootstrap classes, etc. are done in new.ejs for this section.*/
+
+/*EDIT LISTING PAGE STYLING:*/
+.edit-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+/*baaki changes edit.ejs mein kari hai, similar to that of new.ejs.*/
+
+/*SHOW LISTING PAGE STYLING:*/
+.show-img{
+    height: 30vh; /*yaani 30% of viewport height.*/
+}
+.btns{
+    display: flex;
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Map  */
+#map{
+    height: 400px;
+    width: 80vh;
+}
