@@ -354,4 +354,4 @@ app.use((err,req,res,next)=>{
 // git init
 // agr kuch files hai jinko apan commit nhi krna chahte to unko .gitignore file mein add krna hai. Kya kya ignore karana hai? -> node_modules/, .env, and .DS_Store(for mac devices). for that -> touch .gitignore
 // Note(for mac users): .gitignore file mein .DS_Store ko likhne ka tarika rhega: **/.DS_Store -> is syntax ka matlab hai ki agr .DS_Store kisi bhi folder ya subfolder mein bhi dikhe to usko ignore krna hai(kyuki ye ek hidden file hai jo har ek folder ke andar hoti hai). After doing that, you'll notice ki apne VS code ke Explorer section mein node_modules aur .env file hide ho gyi hai(grey colour mein appear ho rhi hai), yaani in dono ko ab git ignore kr rha hai aur track nhi krega. Check krne ke liye -> git status
-// ab in changes ko we are going to add and commit. 
+// ab in changes ko we are going to add and commit. -> git add . and git commit -m "Add Project Files"
